@@ -1,0 +1,40 @@
+.image-card-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .image-card {
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      width: 300px;
+      height: 28em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: rgb(250, 246, 248);
+     
+      mat-card-header {
+        padding: 16px;
+        border-radius: 10px;
+        justify-self:  flex-start;
+    
+        mat-card-title {
+          font-size: 24px;
+          margin-bottom: 10px;
+          height: 5em;
+        }
+    
+        mat-card-subtitle {
+          font-size: 18px;
+        }
+      }
+    
+      mat-card-content {
+        align-self: center;
+      }
+    }
+  }
+  
+  .image-card-container:hover{
+    transform: translate3D(0,0,0) scale(1.06);
+    z-index: 9;
+  }

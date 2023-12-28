@@ -1,0 +1,30 @@
+
+<div *ngIf="!image" class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="image" class = "cardWrapper">
+    
+    <mat-card class="details-card">
+        <mat-card-header>
+            <div mat-card-avatar style="background-image: url({{image.thumbnailUrl}}); background-size: cover;"></div>
+            <mat-card-title>{{image.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{image.thumbnailUrl}}" alt="{{image.title}}">
+        <mat-card-content>
+            <p>
+            
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [routerLink]="['../../image',image.id,'edit']" color="primary">
+            <mat-icon>edit</mat-icon>
+            EDIT</button>
+            <button mat-raised-button (click)="deleteImage()" color ="warn">
+            <mat-icon>delete</mat-icon>
+            DELETE</button>
+        </mat-card-actions>
+        </mat-card>
+
+   
+    
+  </div>

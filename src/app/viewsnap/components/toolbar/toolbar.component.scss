@@ -1,0 +1,78 @@
+.toolbar {
+  padding: 0px;
+  background-color: rgb(250, 246, 248)
+}
+.albums-button{
+  align-self: center;
+  width: 200px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.home-button {
+  align-self: center;
+  margin-left: 0px;
+  height: 100%;
+}
+.logo-icon{
+  max-width: 70px;
+  max-height: auto;
+  margin-right: 40px;
+}
+
+.app-name{
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.icon-display {
+  transform: scale(2);
+  color: black;
+  padding: 10px;
+}
+.home-btn{
+  display: flex;
+  align-items: center;
+}
+
+.more-btn{
+  align-self: center;
+  color: black;
+  margin-right: 10px;
+  height: 100%;
+  width: 30px;
+}
+.addIcon{
+  transform: scale(2);
+}
+
+.app-sidenav-container {
+  flex: 1;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  background-color: whitesmoke;
+  
+}
+
+.sidenav-toolbar{
+  background-color: rgb(250, 246, 248)
+  
+}
+.app-sidenav {
+  background-color:  #ebeced;
+  width: 200px;
+}

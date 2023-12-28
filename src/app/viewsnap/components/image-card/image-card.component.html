@@ -1,0 +1,22 @@
+<div *ngIf="!image">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="image">
+    <div class="image-card-container">
+      <mat-card class="image-card">
+        <mat-card-content>
+          <img mat-card-image src="{{image.thumbnailUrl}}" alt="{{image.title}}">
+        </mat-card-content>
+        <mat-card-header>
+          <mat-card-title>{{ image.title }}</mat-card-title>
+        </mat-card-header>
+        <button mat-raised-button
+        [routerLink]="['../../details/',image.id]"
+        color="primary"
+         >
+          Details 
+        </button>
+      </mat-card>
+    </div>
+  </div>
+  

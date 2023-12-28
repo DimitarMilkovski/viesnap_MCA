@@ -1,0 +1,65 @@
+<div  class="toolbar-container" fxLayout="column" fxFlexFill >
+  
+  <mat-toolbar class="mat-elevation-z8 p-0 toolbar" fxLayout="row" fxLayoutAlign="start stretch" style="z-index: 2" >
+    
+    <button mat-button class = "albums-button" (click)="onClick()">
+      <span fxShow fxHide.xs="" style="font-weight: bold;">My albums</span>
+      <mat-icon class="icon-display">photo_camera</mat-icon>
+    </button>
+    
+    <div class="home-btn">
+      <button mat-button class="home-button " [routerLink]="['/welcome']">
+        <span fxShow fxHide.xs style="font-weight: bold;">Home</span>
+        <mat-icon class="icon-display">home</mat-icon>
+      </button>
+      
+    </div>
+    
+    <span class="example-spacer"></span>
+
+    <div>
+      <button mat-button class="more-btn" [matMenuTriggerFor]="menu">
+        <mat-icon class="addIcon">add</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['image/0/edit']">Add new image</button>
+      </mat-menu>
+
+    </div>
+
+    <div class="logoWrapper " fxLayout = "row">
+      <h3 class="app-name" fxHide.xs>ViewSnap</h3>
+      <img src="../../../../assets/logo with camer bfa8ca58-356b-41a3-9ca4-e786735c83ad.png" class="logo-icon" size-adjust alt="">
+
+    </div>
+    </mat-toolbar>
+    
+    <mat-sidenav-container class="app-sidenav-container" >
+      <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [mode]="isSmallScreen ? 'over' : 'side'" [autoFocus]="false">
+        <mat-toolbar class="sidenav-toolbar">
+          Albums:
+        </mat-toolbar>
+        <mat-nav-list>
+          <mat-list-item *ngIf="error">
+            <p>No albums found...<p>
+
+          </mat-list-item>
+
+          <mat-list-item  *ngFor="let album of albums" [routerLink]="['album',album.id]">
+            <a matLine >
+              <h3>{{ album.title }}</h3>
+            </a>
+          </mat-list-item>
+
+          </mat-nav-list>
+          
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    </div>
+    
+

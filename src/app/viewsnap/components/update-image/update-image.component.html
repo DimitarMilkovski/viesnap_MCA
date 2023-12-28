@@ -1,0 +1,94 @@
+
+
+
+
+<mat-card>
+  <mat-card-header>
+    <h3>{{formTitle}}</h3>
+  </mat-card-header>
+  <mat-card-content>
+    
+    <div class="form-container">
+      <form 
+      [formGroup]="imageForm" 
+      class="form"
+      (ngSubmit)="saveImage()"
+      >
+    
+        <div class="form-fields">
+          <mat-form-field>
+              <mat-label>Image Title</mat-label>
+            <input 
+            matInput
+            formControlName ="title"
+            [ngClass]="{'is-invalid': displayMessage['title']}"
+            >
+            <mat-error>
+              {{displayMessage['title']}}
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field>
+              <mat-label>Album</mat-label>
+            <mat-select 
+            formControlName = "albumId"
+            [ngClass]="{'is-invalid': displayMessage['albumId']}"
+            >
+              <mat-option *ngFor="let album of albums" [value]="album.id">
+                {{album.title}}
+                
+              </mat-option>
+            </mat-select>
+            <mat-error >
+              {{displayMessage['albumId']}}
+            </mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+              <mat-label>Thumbnail URL</mat-label>
+            <input 
+            matInput
+            formControlName = "thumbnailUrl"
+            [ngClass]="{'is-invalid': displayMessage['thumbnailUrl']}"
+            >
+            <mat-error>
+              {{displayMessage['thumbnailUrl']}}
+            </mat-error>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <mat-label>Image URL</mat-label>
+            <input 
+            matInput 
+            formControlName = "url"
+            [ngClass]="{'is-invalid': displayMessage['url']}"
+            >
+            <mat-error>
+              {{displayMessage['url']}}
+            </mat-error>
+          </mat-form-field>
+
+          <button 
+          mat-raised-button
+          color="primary" 
+          class="submit-btn"
+          type="submit"
+          [title]="imageForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+          [disabled]="!imageForm.valid"
+          >
+            {{sumbitBtnText}}
+          </button>
+
+          <div class="alert alert-danger"
+         *ngIf="errorMessage">{{errorMessage}}
+        </div>
+        </div>
+      </form>
+      
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+
+

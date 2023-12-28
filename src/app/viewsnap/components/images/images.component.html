@@ -1,0 +1,29 @@
+<div *ngIf="!images && !errorMessage" class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="images">
+
+    <mat-paginator #paginator [length]="totalItems"
+                  [pageSize]="pageSize"
+                  [pageSizeOptions]="[10, 25, 50, 100]"
+                  (page)="pageEvent = $event">
+    </mat-paginator>
+    <div class="image-card-wrapper">
+        <app-image-card *ngFor="let item of images | slice:((paginator.pageIndex)*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize)" [image]="item"></app-image-card>
+    </div>
+</div>
+
+<app-show-error
+*ngIf="errorMessage"
+[errorMessage]="errorMessage"
+>
+
+</app-show-error>
+
+
+
+
+
+
+
